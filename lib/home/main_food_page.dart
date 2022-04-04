@@ -4,6 +4,8 @@ import 'package:fooddelivery/utils/colors.dart';
 import 'package:fooddelivery/widgets/big_text.dart';
 import 'package:fooddelivery/widgets/small_text.dart';
 
+import 'food_page_body.dart';
+
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({ Key? key }) : super(key: key);
 
@@ -15,8 +17,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-      child: Column(
+      body: Column(
         children: [
           Container(
             margin: EdgeInsets.only(top: 45, bottom: 15),
@@ -50,9 +51,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
           ],
         ),
       ),
-        ],
+        FoodPageBody(),],
       ),
-    ),
     );
   }
 }
