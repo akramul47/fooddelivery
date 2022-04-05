@@ -22,8 +22,10 @@ class _MainFoodPageState extends State<MainFoodPage> {
         children: [
           //Showing the header
           Container(
-            margin: EdgeInsets.only(top: Dimensions.height45, bottom: Dimensions.height15),
-            padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
+            margin: EdgeInsets.only(
+                top: Dimensions.height45, bottom: Dimensions.height15),
+            padding: EdgeInsets.only(
+                left: Dimensions.width20, right: Dimensions.width20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -47,7 +49,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     height: Dimensions.height45,
                     child: Icon(
                       Icons.search,
-                      color: Colors.white, size: Dimensions.iconSize24,
+                      color: Colors.white,
+                      size: Dimensions.iconSize24,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
@@ -59,7 +62,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
             ),
           ),
           //Showing the body
-          FoodPageBody(),
+          Expanded(child: SingleChildScrollView(child: FoodPageBody(),)),
         ],
       ),
     );
