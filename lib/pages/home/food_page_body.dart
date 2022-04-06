@@ -4,11 +4,12 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fooddelivery/utils/colors.dart';
+import 'package:fooddelivery/widgets/app_column.dart';
 import 'package:fooddelivery/widgets/big_text.dart';
 import 'package:fooddelivery/widgets/icon_and_text_widget.dart';
 import 'package:fooddelivery/widgets/small_text.dart';
 
-import '../utils/dimensions.dart';
+import 'package:fooddelivery/utils/dimensions.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({Key? key}) : super(key: key);
@@ -98,9 +99,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ),
         //List of food and images
-        Container(
-          height: 750,
-          child: ListView.builder(
+        
+          
+          ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: 10,
@@ -112,8 +113,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     children: [
                       //image section
                       Container(
-                        width: 120,
-                        height: 120,
+                        width: Dimensions.listViewImgSize,
+                        height: Dimensions.listViewImgSize,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                             Dimensions.radius20,
@@ -128,7 +129,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       //text container
                       Expanded(
                         child: Container(
-                          height: 100,
+                          height: Dimensions.listViewTextContainerSize,
                           
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -172,8 +173,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     ],
                   ),
                 );
-              }),
-        )
+              },
+        ),
       ],
     );
   }
@@ -250,59 +251,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     top: Dimensions.height15,
                     left: Dimensions.height15,
                     right: Dimensions.height15),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      BigText(text: "Chinese Side"),
-                      SizedBox(
-                        height: Dimensions.height10,
-                      ),
-                      Row(
-                        children: [
-                          Wrap(
-                            children: List.generate(5, (index) {
-                              return Icon(
-                                Icons.star,
-                                color: AppColors.mainColor,
-                                size: 15,
-                              );
-                            }),
-                          ),
-                          SizedBox(
-                            width: Dimensions.height10,
-                          ),
-                          SmallText(text: "4.5"),
-                          SizedBox(
-                            width: Dimensions.height10,
-                          ),
-                          SmallText(text: "1287"),
-                          SizedBox(
-                            width: Dimensions.height10,
-                          ),
-                          SmallText(text: "comments"),
-                        ],
-                      ),
-                      SizedBox(
-                        height: Dimensions.height20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconAndTextWidget(
-                              icon: Icons.circle_sharp,
-                              text: "Normal",
-                              iconColor: AppColors.iconColor1),
-                          IconAndTextWidget(
-                              icon: Icons.location_on,
-                              text: "1.7km",
-                              iconColor: AppColors.mainColor),
-                          IconAndTextWidget(
-                              icon: Icons.access_time_rounded,
-                              text: "32min",
-                              iconColor: AppColors.iconColor2),
-                        ],
-                      )
-                    ]),
+                child: AppColumn(text: "Chinese Side",),
               ),
             ),
           ),
