@@ -1,3 +1,4 @@
+import 'package:fooddelivery/utils/app_constants.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/connect.dart';
 
@@ -11,7 +12,7 @@ class ApiClient extends GetConnect implements GetxService{
     
     baseUrl = appBaseUrl;
     timeout = Duration(seconds: 30);
-    token="";
+    token=AppConstants.TOKEN;
 
     mainHeaders={
       'Content-type':'application/json; charset=UTF-8',
