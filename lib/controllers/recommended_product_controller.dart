@@ -9,6 +9,8 @@ class RecommendedProductController extends GetxController{
   RecommendedProductController({required this.recommendedProductRepo});
   List<dynamic> _recommendedProductList=[];
   List<dynamic> get recommendedProductList => _recommendedProductList;
+  bool _isLoaded = false;
+  bool get isLoaded => _isLoaded;
 
   Future<void> getRecommendedrProductList()async{
     Response response = await recommendedProductRepo.getRecommendedProductList();
@@ -17,6 +19,7 @@ class RecommendedProductController extends GetxController{
       _recommendedProductList=[];
       _recommendedProductList.addAll(Product.fromJson(response.body).products);
       print(_recommendedProductList);
+      _isLoaded = true;
       update();
     }else{
       print("no response");

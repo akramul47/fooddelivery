@@ -53,7 +53,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         //slider section
         GetBuilder<PopularProductController>(
           builder: (popularProducts) {
-            return Container(
+            return popularProducts.isLoaded?Container(
               height: Dimensions.pageView,
               child: PageView.builder(
                   controller: pageController,
@@ -61,6 +61,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   itemBuilder: (context, position) {
                     return _buildPageItem(position, popularProducts.popularProductList[position]);
                   }),
+            ):CircularProgressIndicator(
+              color: AppColors.mainColor,
             );
           }
         ),
@@ -118,7 +120,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         //List of food and images
           GetBuilder<RecommendedProductController>(
             builder: (recommendedProduct) {
-              return ListView.builder(
+              return recommendedProduct.isLoaded?ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: recommendedProduct.recommendedProductList.length,
@@ -198,6 +200,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       ),
                     );
                   },
+        ):CircularProgressIndicator(
+          color: AppColors.mainColor,
         );
             }
           ),
