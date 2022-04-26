@@ -1,26 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:fooddelivery/controllers/recommended_product_controller.dart';
 import 'package:fooddelivery/utils/colors.dart';
 import 'package:fooddelivery/utils/dimensions.dart';
 import 'package:fooddelivery/widgets/app_icon.dart';
 import 'package:fooddelivery/widgets/expandable_text_widget.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../../routes/route_helper.dart';
+import '../../utils/app_constants.dart';
 import '../../widgets/big_text.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
-  const RecommendedFoodDetail({ Key? key }) : super(key: key);
+  final int pageId;
+  const RecommendedFoodDetail({ Key? key, required this.pageId }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<RecommendedProductController>().recommendedProductList[pageId];
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: 70,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear),
+                GestureDetector(
+                  onTap: (){
+                    Get.toNamed(RouteHelper.getInitial());
+                  },
+                child: AppIcon(icon: Icons.clear)),
                 AppIcon(icon: Icons.shopping_cart_outlined),
               ],
             ),
@@ -28,7 +40,7 @@ class RecommendedFoodDetail extends StatelessWidget {
               preferredSize: Size.fromHeight(20),
               child: Container(
               
-                child: Center(child: BigText(text: "Chinese Side", size: Dimensions.font26,),),
+                child: Center(child: BigText(text: product.name!, size: Dimensions.font26,),),
                 width: double.maxFinite,
                 padding: EdgeInsets.only(top: 5, bottom: 5),
                 decoration: BoxDecoration(
@@ -43,7 +55,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             pinned: true,
             backgroundColor: AppColors.yellowColor,
             expandedHeight: 300,
-            flexibleSpace: FlexibleSpaceBar(background: Image.asset("assets/image/food0.png",
+            flexibleSpace: FlexibleSpaceBar(background: Image.network(AppConstants.BASE_URL+AppConstants.UPLOAD_URL+product.img!,
             width: double.maxFinite,
             fit: BoxFit.cover,),),
           ),
@@ -54,8 +66,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   margin: EdgeInsets.only(
                     left: Dimensions.width20, right: Dimensions.width20,
                   ),
-                  child: ExpandableTextWidget(text: "Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. "),
-                ),
+                  child: ExpandableTextWidget(text: product.description!),                ),
               ],
             )
           ),
@@ -77,7 +88,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                 AppIcon(icon: Icons.remove, backgroundColor: AppColors.mainColor,
                 iconColor: Colors.white, iconSize: Dimensions.iconSize24,),
 
-                BigText(text: "\$12.88 "+" X "+" 0 ", color: AppColors.mainBlackColor,
+                BigText(text: "\$ ${product.price!} X 0 ", color: AppColors.mainBlackColor,
                 size: Dimensions.font26,),
 
 

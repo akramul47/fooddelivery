@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fooddelivery/controllers/popular_product_controller.dart';
+import 'package:fooddelivery/routes/route_helper.dart';
 import 'package:fooddelivery/utils/dimensions.dart';
 import 'package:fooddelivery/widgets/app_column.dart';
 import 'package:fooddelivery/widgets/expandable_text_widget.dart';
+import 'package:get/get.dart';
 
+import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
@@ -11,10 +15,14 @@ import '../../widgets/icon_and_text_widget.dart';
 import '../../widgets/small_text.dart';
 
 class PopularFoodDetail extends StatelessWidget {
-  const PopularFoodDetail({Key? key}) : super(key: key);
+  final int pageId;
+  const PopularFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product= Get.find<PopularProductController>().popularProductList[pageId];
+    print("page id is "+pageId.toString());
+    print("product name is "+product.name.toString());
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -29,9 +37,10 @@ class PopularFoodDetail extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(
-                          "assets/image/foodbir.jpg",
-                        ))),
+                        image: NetworkImage(
+                          AppConstants.BASE_URL+AppConstants.UPLOAD_URL+product.img!
+                        )
+                        )),
               ),
             ),
             //icon widget
@@ -47,8 +56,13 @@ class PopularFoodDetail extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppIcon(
-                      icon: Icons.arrow_back_ios,
+                    GestureDetector(
+                      onTap: (){
+                        Get.toNamed(RouteHelper.getInitial());
+                      },
+                      child: AppIcon(
+                        icon: Icons.arrow_back_ios,
+                      ),
                     ),
                     AppIcon(
                       icon: Icons.shopping_cart_outlined,
@@ -79,7 +93,7 @@ class PopularFoodDetail extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AppColumn(text: "Biriani"),
+                    AppColumn(text: product.name),
                     SizedBox(
                       height: Dimensions.height20,
                     ),
@@ -91,8 +105,7 @@ class PopularFoodDetail extends StatelessWidget {
                     Expanded(
                         child: SingleChildScrollView(
                             child: ExpandableTextWidget(
-                                text:
-                                    "Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region. "))),
+                                text: product.description!))),
                   ],
                 ),
               ),
@@ -153,7 +166,7 @@ class PopularFoodDetail extends StatelessWidget {
                 color: AppColors.mainColor,
               ),
               child: BigText(
-                text: "\$10 | Add to cart",
+                text: "\$ ${product.price!} | Add to cart",
                 color: Colors.white,
               ),
             ),
