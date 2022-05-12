@@ -6,6 +6,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 import '../pages/food/recommended_food_detail.dart';
+import '../pages/home/home_page.dart';
 
 class RouteHelper{
   static const String initial="/";
@@ -19,7 +20,7 @@ class RouteHelper{
   static String getCartPage()=>'$cartPage';
 
   static List<GetPage> routes=[
-    GetPage(name: "/", page: ()=>MainFoodPage()),
+    GetPage(name: initial, page: ()=>HomePage()),
 
     GetPage(name: popularFood, page: (){
       var pageId = Get.parameters['pageId'];
