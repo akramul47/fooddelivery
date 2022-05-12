@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fooddelivery/controllers/cart_controller.dart';
 import 'package:fooddelivery/pages/cart/cart_page.dart';
 import 'package:fooddelivery/pages/food/popular_food_detail.dart';
 import 'package:fooddelivery/pages/food/recommended_food_detail.dart';
 import 'package:fooddelivery/pages/home/main_food_page.dart';
+import 'package:fooddelivery/pages/splash/splash_page.dart';
 import 'package:fooddelivery/routes/route_helper.dart';
 import 'package:get/get.dart';
 import 'controllers/popular_product_controller.dart';
@@ -20,14 +22,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.find<PopularProductController>().getPopularProductList();
-    Get.find<RecommendedProductController>().getRecommendedrProductList();
-    return GetMaterialApp(
+    
+    return GetBuilder<CartController>(builder: (_){
+      return GetBuilder<PopularProductController>(builder: (_){
+        return GetBuilder<RecommendedProductController>(builder: (_){
+          return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      //home: MainFoodPage(),
-      initialRoute: RouteHelper.getInitial(),
+      //home: SplashScreen(),
+      initialRoute: RouteHelper.getSplashPage(),
       getPages: RouteHelper.routes,
     );
+        });
+      });
+    });
   }
 }
