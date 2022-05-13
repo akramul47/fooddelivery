@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    Get.find<CartController>().getCartData();
     return GetBuilder<CartController>(builder: (_){
       return GetBuilder<PopularProductController>(builder: (_){
         return GetBuilder<RecommendedProductController>(builder: (_){
