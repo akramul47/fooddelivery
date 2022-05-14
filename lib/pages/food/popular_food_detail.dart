@@ -213,7 +213,7 @@ class PopularFoodDetail extends StatelessWidget {
                     ),
                     
                       child: BigText(
-                        text: "\$ ${product.price!} | Add to cart",
+                        text: "Tk ${product.price!} | Add to cart",
                         color: Colors.white,
                       ),
                     ),

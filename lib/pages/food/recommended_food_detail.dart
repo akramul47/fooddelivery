@@ -130,7 +130,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                 iconColor: Colors.white, iconSize: Dimensions.iconSize24,)
                 ),
 
-                BigText(text: "\$ ${product.price!} X ${controller.inCartItems} ", color: AppColors.mainBlackColor,
+                BigText(text: "Tk ${product.price!} X ${controller.inCartItems} ", color: AppColors.mainBlackColor,
                 size: Dimensions.font26,),
 
 
@@ -189,7 +189,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                 color: AppColors.mainColor,
               ),
               child: BigText(
-                text: "\$ ${product.price!} | Add to cart",
+                text: "Tk ${product.price!} | Add to cart",
                 color: Colors.white,
               ),
             ),
