@@ -4,7 +4,10 @@ import 'package:fooddelivery/pages/food/popular_food_detail.dart';
 import 'package:fooddelivery/utils/colors.dart';
 import 'package:fooddelivery/widgets/big_text.dart';
 import 'package:fooddelivery/widgets/small_text.dart';
+import 'package:get/get.dart';
 
+import '../../controllers/popular_product_controller.dart';
+import '../../controllers/recommended_product_controller.dart';
 import 'food_page_body.dart';
 import 'package:fooddelivery/utils/dimensions.dart';
 
@@ -16,10 +19,17 @@ class MainFoodPage extends StatefulWidget {
 }
 
 class _MainFoodPageState extends State<MainFoodPage> {
+
+  Future<void> _loadResource() async{
+    await Get.find<PopularProductController>().getPopularProductList();
+    await Get.find<RecommendedProductController>().getRecommendedrProductList();
+  }
+  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return RefreshIndicator(
+      
+      child: Column(
         children: [
           //Showing the header
           Container(
@@ -68,7 +78,6 @@ class _MainFoodPageState extends State<MainFoodPage> {
             child: FoodPageBody(),
           )),
         ],
-      ),
-    );
+      ), onRefresh: _loadResource );
   }
 }
