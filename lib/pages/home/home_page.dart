@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fooddelivery/pages/account/account_page.dart';
+import 'package:fooddelivery/pages/auth/sign_up_page.dart';
 import 'package:fooddelivery/pages/cart/cart_history.dart';
 import 'package:fooddelivery/pages/home/main_food_page.dart';
 import 'package:fooddelivery/utils/colors.dart';
+
+import '../auth/sign_in_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -20,13 +24,12 @@ class _HomePageState extends State<HomePage> {
 
   List pages=[
     MainFoodPage(),
+    SignInPage(),
     Container(
       child: Center(child: Text("Next Page")),
     ),
     CartHistory(),
-    Container(
-      child: Center(child: Text("Next next next Page")),
-    ),
+    AccountPage(),
   ];
 
 
