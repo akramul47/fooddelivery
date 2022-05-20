@@ -171,8 +171,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     BigText(text: recommendedProduct.recommendedProductList[index].name!),
-                                    SizedBox(height: Dimensions.height10,),
-                                    SmallText(text: "With Chinese characteristics"),
+                                    SizedBox(height: Dimensions.height20,),
+                                    // SmallText(text: recommendedProduct.recommendedProductList[index].description!),
                                     SizedBox(height: Dimensions.height10,),
                                     Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

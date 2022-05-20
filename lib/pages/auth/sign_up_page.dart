@@ -4,6 +4,7 @@ import 'package:fooddelivery/base/custom_loader.dart';
 import 'package:fooddelivery/base/show_custom_snackbar.dart';
 import 'package:fooddelivery/controllers/auth_controller.dart';
 import 'package:fooddelivery/models/signup_body_model.dart';
+import 'package:fooddelivery/routes/route_helper.dart';
 import 'package:fooddelivery/utils/colors.dart';
 import 'package:fooddelivery/utils/dimensions.dart';
 import 'package:fooddelivery/widgets/app_text_field.dart';
@@ -53,6 +54,7 @@ class SignUpPage extends StatelessWidget {
            authController.registration(signUpBody).then((status){
              if(status.isSuccess){
                print("Success registration");
+               Get.offNamed(RouteHelper.getInitial());
              }else{
                showCustomSnackBar(status.message);
              }
