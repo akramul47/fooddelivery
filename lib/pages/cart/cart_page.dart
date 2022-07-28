@@ -238,6 +238,7 @@ class CartPage extends StatelessWidget {
                     //popularProduct.addItem(product);
                     if(Get.find<AuthController>().userLoggedIn()){
                       cartController.addToHistory();
+                      Get.toNamed(RouteHelper.getPaymentPage());
                     }else{
                       Get.toNamed(RouteHelper.getSignInPage());
                     }

@@ -31,6 +31,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
       
       child: Column(
         children: [
+          // SizedBox(height: Dimensions.height45,),
           //Showing the header
           Container(
             margin: EdgeInsets.only(

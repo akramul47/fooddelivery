@@ -9,6 +9,7 @@ import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import '../pages/auth/sign_in_page.dart';
 import '../pages/food/recommended_food_detail.dart';
 import '../pages/home/home_page.dart';
+import 'package:fooddelivery/pages/payment.dart';
 
 class RouteHelper{
   static const String splashPage ="/splash-page";
@@ -17,6 +18,7 @@ class RouteHelper{
   static const String recommendedFood="/recommended-food";
   static const String cartPage="/cart-page";
   static const String signIn="/sign-in";
+  static const String payment="/payment";
 
   static String getSplashPage()=> '$splashPage';
   static String getInitial()=>'$initial';
@@ -24,9 +26,11 @@ class RouteHelper{
   static String getRecommendedFood(int pageId, String page)=>'$recommendedFood?pageId=$pageId&page=$page';
   static String getCartPage()=>'$cartPage';
   static String getSignInPage()=>'$signIn';
+  static String getPaymentPage()=>'$payment';
 
   static List<GetPage> routes=[
     GetPage(name: splashPage, page: ()=>SplashScreen()),
+    GetPage(name: payment, page: ()=>LoginScreen()),
     GetPage(name: initial, page: ()=>HomePage()),
     GetPage(name: signIn, page: (){
       return SignInPage();},
