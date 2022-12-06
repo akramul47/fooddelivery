@@ -15,6 +15,8 @@ import 'package:intl/intl.dart';
 
 import '../../models/cart_model.dart';
 
+import "package:url_launcher/url_launcher.dart";
+
 class CartHistory extends StatelessWidget {
   const CartHistory({Key? key}) : super(key: key);
 
@@ -102,7 +104,7 @@ class CartHistory extends StatelessWidget {
                                   i < itemsPerOrder.length;
                                   i++) //itemsPerOrder.length
                                 Container(
-                                  height: Dimensions.height30 * 4,
+                                  height: Dimensions.height30 * 6,
                                   margin: EdgeInsets.only(
                                     bottom: Dimensions.height20,
                                   ),
@@ -157,6 +159,8 @@ class CartHistory extends StatelessWidget {
                                                   : Container();
                                             }),
                                           ),
+                      
+                                                
                                           Container(
                                             height: Dimensions.height20 * 4,
                                             child: Column(
@@ -247,6 +251,58 @@ class CartHistory extends StatelessWidget {
                                           )
                                         ],
                                       ),
+                                      // Container(
+                                        
+                                      //   // height: Dimensions.height10,
+                                      //   // width: Dimensions.height15,
+                                      //   color: Colors.red,
+                                      //   child: Text("Call Rider"),
+                                      // ),
+                                       Container(
+                                        alignment: Alignment.bottomRight,
+                                        
+                                         child: ElevatedButton(
+                                          onPressed: ()async{
+                                                             Uri phoneno = Uri.parse('tel:+8801777777777');
+                                                             if (await launchUrl(phoneno)) {
+                                                                 //dialer opened
+                                                             }else{
+                                                                 //dailer is not opened
+                                                             }
+                                                         }, 
+                                           
+                                           child: Container(
+                                                       padding:
+                                                           EdgeInsets.symmetric(
+                                                               horizontal:
+                                                                   Dimensions
+                                                                       .width10,
+                                                               vertical: Dimensions
+                                                                       .height10 /
+                                                                   2),
+                                                      //  decoration: BoxDecoration(
+                                                         
+                                                      //    borderRadius: BorderRadius
+                                                      //        .circular(Dimensions
+                                                      //                .radius15 /
+                                                      //            3),
+                                                      //    border: Border.all(
+                                                      //        width: 1,
+                                                      //        color: AppColors
+                                                      //            .mainColor),
+                                                      //  ),
+                                                       child: 
+                                                       
+                                                       
+                                                       SmallText(
+                                                         size: Dimensions.font16,
+                                                         text: "Call Rider",
+                                                         color:
+                                                             Colors.white,
+                                                       ),
+                                                     ),
+                                         ),
+                                       ),
                                     ],
                                   ),
                                 )

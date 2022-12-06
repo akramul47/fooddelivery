@@ -7,6 +7,7 @@ import 'package:fooddelivery/pages/home/main_food_page.dart';
 import 'package:fooddelivery/utils/colors.dart';
 
 import '../auth/sign_in_page.dart';
+import '../cart/cart_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -24,9 +25,10 @@ class _HomePageState extends State<HomePage> {
 
   List pages=[
     MainFoodPage(),
-    Container(
-      child: Center(child: Text("History Page")),
-    ),
+    // Container(
+    //   child: Center(child: Text("History Page")),
+    // ),
+    CartPage(),
     CartHistory(),
     AccountPage(),
   ];
@@ -106,11 +108,11 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(icon: Icon(Icons.home_outlined,),
           label: "home",
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.archive),
-          label: "history",
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart,),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart),
           label: "cart",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.history,),
+          label: "history",
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person,),
           label: "me",

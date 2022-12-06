@@ -4,6 +4,8 @@ import 'package:fooddelivery/widgets/text_field_input.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../base/show_custom_snackbar.dart';
+import '../controllers/auth_controller.dart';
 import '../routes/route_helper.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+           
   @override
   void dispose(){
     super.dispose();
@@ -53,6 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
             GestureDetector(
               onTap: () {
                Get.toNamed(RouteHelper.getInitial());
+              
               },
               child: Container(child: const Text("Check out"),
               width: double.infinity,
