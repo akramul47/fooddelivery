@@ -258,12 +258,63 @@ class CartHistory extends StatelessWidget {
                                       //   color: Colors.red,
                                       //   child: Text("Call Rider"),
                                       // ),
-                                       Container(
-                                        alignment: Alignment.bottomRight,
+                                       Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                         children: [
+                                           Container(
+                                            // alignment: Alignment.bottomRight,
+                                            
+                                             child: ElevatedButton(
+                                              onPressed: ()async{
+                                                                 Uri phoneno = Uri.parse('tel:+88017777777');
+                                                                 if (await launchUrl(phoneno)) {
+                                                                     //dialer opened
+                                                                 }else{
+                                                                     //dailer is not opened
+                                                                 }
+                                                             }, 
+                                               
+                                               child: Container(
+                                                           padding:
+                                                               EdgeInsets.symmetric(
+                                                                   horizontal:
+                                                                       Dimensions
+                                                                           .width10,
+                                                                   vertical: Dimensions
+                                                                           .height10 /
+                                                                       2),
+                                                          //  decoration: BoxDecoration(
+                                                             
+                                                          //    borderRadius: BorderRadius
+                                                          //        .circular(Dimensions
+                                                          //                .radius15 /
+                                                          //            3),
+                                                          //    border: Border.all(
+                                                          //        width: 1,
+                                                          //        color: AppColors
+                                                          //            .mainColor),
+                                                          //  ),
+                                                           child: 
+                                                           
+                                                           
+                                                           SmallText(
+                                                             size: Dimensions.font16,
+                                                             text: "Call Rider 1",
+                                                             color:
+                                                                 Colors.white,
+                                                           ),
+                                                         ),
+                                             ),
+                                           ),
+                                           SizedBox(
+                                            width: 10,
+                                           ),
+                                           Container(
+                                        // alignment: Alignment.bottomRight,
                                         
                                          child: ElevatedButton(
                                           onPressed: ()async{
-                                                             Uri phoneno = Uri.parse('tel:+8801777777777');
+                                                             Uri phoneno = Uri.parse('tel:+8801791228826');
                                                              if (await launchUrl(phoneno)) {
                                                                  //dialer opened
                                                              }else{
@@ -296,12 +347,14 @@ class CartHistory extends StatelessWidget {
                                                        
                                                        SmallText(
                                                          size: Dimensions.font16,
-                                                         text: "Call Rider",
+                                                         text: "Call Rider 2",
                                                          color:
                                                              Colors.white,
                                                        ),
                                                      ),
                                          ),
+                                       ),
+                                         ],
                                        ),
                                     ],
                                   ),
