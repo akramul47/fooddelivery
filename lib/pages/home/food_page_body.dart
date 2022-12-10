@@ -240,7 +240,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       transform: matrix,
       child: Stack(
         children: [
+          
           GestureDetector(
+            
             onTap: (){
               
               Get.toNamed(RouteHelper.getPopularFood(index, "home"));

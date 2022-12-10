@@ -6,6 +6,7 @@ import 'package:fooddelivery/pages/cart/cart_page.dart';
 import 'package:fooddelivery/pages/food/popular_food_detail.dart';
 import 'package:fooddelivery/pages/food/recommended_food_detail.dart';
 import 'package:fooddelivery/pages/home/main_food_page.dart';
+import 'package:fooddelivery/pages/payment.dart';
 import 'package:fooddelivery/pages/splash/splash_page.dart';
 import 'package:fooddelivery/routes/route_helper.dart';
 import 'package:get/get.dart';
@@ -33,8 +34,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       //home: SignInPage(),
       //home: SplashScreen(),
-      initialRoute: RouteHelper.getSplashPage(),
-      getPages: RouteHelper.routes,
+      home: LoginScreen(),
+      // initialRoute: RouteHelper.getSplashPage(),
+      // getPages: RouteHelper.routes,
     );
         });
       });

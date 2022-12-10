@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fooddelivery/utils/app_constants.dart';
 import 'package:fooddelivery/utils/colors.dart';
+import 'package:fooddelivery/widgets/big_text.dart';
 import 'package:fooddelivery/widgets/text_field_input.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -7,6 +9,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../base/show_custom_snackbar.dart';
 import '../controllers/auth_controller.dart';
 import '../routes/route_helper.dart';
+import '../utils/dimensions.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({ Key? key }) : super(key: key);
@@ -41,6 +44,31 @@ class _LoginScreenState extends State<LoginScreen> {
             // height: 64,),
             // const SizedBox(height: 64,),
 
+
+            Row(
+              children: [
+                Container(
+                  height: Dimensions.screenHeight*0.25,
+                  child: Center(
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 25,
+                      backgroundImage: AssetImage("assets/image/bkash.png"),
+      
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  children: [
+                    BigText(text: "Make payment"),
+                    BigText(text: "01791-228826"),
+                  ],
+                ),
+              ],
+            ),
             //email
             TextFieldInput(textEditingController: _emailController,
              hintText: "Enter your bkash number",
