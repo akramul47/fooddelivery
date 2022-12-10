@@ -34,9 +34,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       //home: SignInPage(),
       //home: SplashScreen(),
-      home: LoginScreen(),
-      // initialRoute: RouteHelper.getSplashPage(),
-      // getPages: RouteHelper.routes,
+      initialRoute: RouteHelper.getSplashPage(),
+      getPages: RouteHelper.routes,
     );
         });
       });
