@@ -54,7 +54,9 @@ class _LoginScreenState extends State<LoginScreen> {
           //    if(status.isSuccess){
                //Get.toNamed(RouteHelper.getInitial());
                Get.toNamed(RouteHelper.getInitial());
-               showCustomSnackBar("Order placed successfully", title: "Success");
+              //  showCustomSnackBar("Order placed successfully", title: "Success");
+               Get.snackbar("Success", "Order placed successfully!",
+          backgroundColor: AppColors.mainColor, colorText: Colors.white);
       //        }else{
       //          showCustomSnackBar(status.message);
       //        }
