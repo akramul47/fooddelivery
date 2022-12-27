@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         return GetBuilder<RecommendedProductController>(builder: (_){
           return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Foodie Zone',
       //home: SignInPage(),
       //home: SplashScreen(),
       initialRoute: RouteHelper.getSplashPage(),
