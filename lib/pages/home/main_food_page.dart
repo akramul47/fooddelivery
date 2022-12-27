@@ -49,27 +49,30 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     ),
                     Row(
                       children: [
-                        SmallText(text: "Chittagong", color: Colors.black54),
-                        Icon(Icons.arrow_drop_down_rounded),
+                        Icon(Icons.location_city_outlined),
+                        SizedBox(
+                          width: 2,
+                        ),
+                        SmallText(text: "Chittagong", color: Colors.black54, size: Dimensions.font16,),
                       ],
                     )
                   ],
                 ),
-                Center(
-                  child: Container(
-                    width: Dimensions.height45,
-                    height: Dimensions.height45,
-                    child: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                      size: Dimensions.iconSize24,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: AppColors.mainColor,
-                    ),
-                  ),
-                ),
+                // Center(
+                //   child: Container(
+                //     width: Dimensions.height45,
+                //     height: Dimensions.height45,
+                //     child: Icon(
+                //       Icons.search,
+                //       color: Colors.white,
+                //       size: Dimensions.iconSize24,
+                //     ),
+                //     decoration: BoxDecoration(
+                //       borderRadius: BorderRadius.circular(15),
+                //       color: AppColors.mainColor,
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
